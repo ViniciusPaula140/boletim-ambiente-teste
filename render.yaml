@@ -6,6 +6,8 @@ services:
     buildCommand: |
       npm cache clean --force
       rm -rf node_modules
+      npm install -g npm@latest
+      npm install -g vite
       npm ci
       npm run build
     startCommand: npm start
