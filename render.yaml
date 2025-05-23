@@ -2,37 +2,23 @@ services:
   - type: web
     name: boletim-escolar
     env: node
-    nodeVersion: 18.17.0
-    buildCommand: |
-      npm install
-      npm install @vitejs/plugin-react vite --save-dev
-      npm run build
+    buildCommand: npm install && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 10000
-      - key: DATABASE_URL
-        sync: false
-      - key: SUPABASE_URL
-        sync: false
-      - key: SUPABASE_KEY
-        sync: false
-      - key: BACKEND_URL
-        sync: false
-      - key: CORS_ORIGIN
-        sync: false
     healthCheckPath: /health
     autoDeploy: true
     # Configurações de segurança e performance
     headers:
       - path: /*
-        name: X-Frame-Options
-        value: DENY
-      - path: /*
         name: X-Content-Type-Options
         value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
       - path: /*
         name: X-XSS-Protection
         value: 1; mode=block
@@ -41,9 +27,9 @@ services:
         value: max-age=31536000; includeSubDomains
     # Configurações de cache
     cache:
-      - path: /assets/*
+      - path: /static/*
         ttl: 86400
-      - path: /images/*
+      - path: /assets/*
         ttl: 86400
     # Configurações de rede
     network:
@@ -51,10 +37,16 @@ services:
         protocol: http
     # Configurações de recursos
     resources:
-      cpu: 1
-      memory: 1GB
+      cpu: 0.1
+      memory: 512MB
       disk: 1GB
     # Configurações de monitoramento
     monitoring:
-      errorThreshold: 5
-      latencyThreshold: 1000 
+      enabled: true
+      alerts:
+        - type: error
+          threshold: 5
+          window: 5m
+        - type: latency
+          threshold: 1000
+          window: 5m 
