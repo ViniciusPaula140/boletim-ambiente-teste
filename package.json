@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
-    "build": "npm install vite@4.5.2 @vitejs/plugin-react@4.2.1 typescript@5.6.3 @types/node@20.16.11 @types/react@18.3.11 @types/react-dom@18.3.1 --legacy-peer-deps && npx vite build && tsc -p tsconfig.json && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "prebuild": "rm -rf node_modules && npm install --legacy-peer-deps",
+    "build": "npm install vite@4.5.2 @vitejs/plugin-react@4.2.1 typescript@5.6.3 @types/node@20.16.11 @types/react@18.3.11 @types/react-dom@18.3.1 --legacy-peer-deps && npm install && npx vite build && tsc -p tsconfig.json && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "start": "node dist/index.js",
     "preview": "vite preview"
   },
