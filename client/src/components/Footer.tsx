@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           <div className="space-y-3">
             <h3 className="text-lg font-bold mb-2 flex items-center text-white drop-shadow-md">
               <span className="material-icons mr-2">school</span>
-              Escola Arco-íris
+              Escola
             </h3>
             <p className="text-white text-sm font-semibold drop-shadow-md">
               Uma abordagem inovadora para educação, utilizando tecnologia para elevar o padrão de ensino.
@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-indigo-500 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-white font-bold drop-shadow-md">© {new Date().getFullYear()} Escola Arco-íris - Todos os direitos reservados</p>
+          <p className="text-sm text-white font-bold drop-shadow-md">© {new Date().getFullYear()} Escola  - Todos os direitos reservados</p>
           <div className="mt-4 md:mt-0">
             <div className="bg-white/90 px-2 py-1 rounded text-xs font-bold flex items-center text-green-900 drop-shadow-md">
               <span className="material-icons text-xs mr-1 text-green-900 drop-shadow-md">new_releases</span>

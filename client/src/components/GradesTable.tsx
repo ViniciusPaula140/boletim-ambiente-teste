@@ -284,7 +284,7 @@ const GradesTable = forwardRef<any, GradesTableProps>(({ passingGrade }, ref) =>
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(22);
       doc.setTextColor(0, 0, 0);
-      doc.text('ESCOLA ARCO-ÍRIS', pageWidth / 2, headerHeight / 2 - 5, { align: 'center' });
+      doc.text('ESCOLA ', pageWidth / 2, headerHeight / 2 - 5, { align: 'center' });
       
       // Adicionando a frase abaixo do nome da escola
       doc.setFont('helvetica', 'italic');
@@ -586,7 +586,7 @@ const GradesTable = forwardRef<any, GradesTableProps>(({ passingGrade }, ref) =>
       doc.setFont('helvetica', 'normal');
       doc.text('Coordenação Pedagógica:', margin, pageHeight - 8);
       doc.setFont('helvetica', 'bold');
-      doc.text('Marinilda da Cruz de Jesus de Carvalho', pageWidth / 2, pageHeight - 8, { align: 'center' });
+      doc.text('professor', pageWidth / 2, pageHeight - 8, { align: 'center' });
       doc.setFont('helvetica', 'normal');
       doc.text(`Emitido em: ${new Date().toLocaleDateString()}`, pageWidth - margin, pageHeight - 8, { align: 'right' });
       
@@ -1093,7 +1093,7 @@ const GradesTable = forwardRef<any, GradesTableProps>(({ passingGrade }, ref) =>
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(22);
       doc.setTextColor(0, 0, 0); // Alterado para preto
-      doc.text('ESCOLA ARCO-ÍRIS', pageWidth / 2, headerHeight / 2 - 5, { align: 'center' });
+      doc.text('ESCOLA', pageWidth / 2, headerHeight / 2 - 5, { align: 'center' });
       
       // Adicionando a frase abaixo do nome da escola
       doc.setFont('helvetica', 'italic');
@@ -1335,7 +1335,7 @@ const GradesTable = forwardRef<any, GradesTableProps>(({ passingGrade }, ref) =>
       doc.setFont('helvetica', 'normal');
       doc.text('Coordenação Pedagógica:', margin, pageHeight - 8);
       doc.setFont('helvetica', 'bold');
-      doc.text('Marinilda da Cruz de Jesus de Carvalho', pageWidth / 2, pageHeight - 8, { align: 'center' });
+      doc.text('professor', pageWidth / 2, pageHeight - 8, { align: 'center' });
       doc.setFont('helvetica', 'normal');
       doc.text(`Emitido em: ${new Date().toLocaleDateString()}`, pageWidth - margin, pageHeight - 8, { align: 'right' });
       
@@ -1354,7 +1354,7 @@ const GradesTable = forwardRef<any, GradesTableProps>(({ passingGrade }, ref) =>
         <span className="material-icons text-indigo-300 text-6xl mb-4">auto_stories</span>
         <h2 className="text-2xl font-semibold text-indigo-700 mb-2">Educar é semear com sabedoria e colher com paciência.</h2>
         <p className="text-indigo-500 italic mb-1">— Augusto Cury</p>
-        <p className="text-sm text-gray-500 mt-2">Coordenação Pedagógica: Marinilda da Cruz de Jesus de Carvalho</p>
+        <p className="text-sm text-gray-500 mt-2">Coordenação Pedagógica: --</p>
       </div>
     );
   }

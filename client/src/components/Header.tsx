@@ -9,7 +9,12 @@ import { useLocation } from 'wouter';
  * Componente de cabeçalho que exibe o logo da escola e informações do professor
  * @returns {JSX.Element} Elemento JSX que representa o cabeçalho
  */
-const Header: React.FC = () => {
+interface HeaderProps {
+  teacherName?: string;
+  teacherSubject?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ teacherName = "Prof. Marinilda Carvalho", teacherSubject = "Coordenadora pedagógica" }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [suggestions, setSuggestions] = useState<Student[]>([]);
@@ -64,7 +69,7 @@ const Header: React.FC = () => {
             />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-white">Escola Arco-íris</h1>
+            <h1 className="text-2xl font-bold text-white">Escola</h1>
             <p className="text-indigo-100 text-sm">Sistema de Gestão Acadêmica</p>
           </div>
         </div>
@@ -77,8 +82,8 @@ const Header: React.FC = () => {
           
           <div className="flex items-center">
             <div>
-              <div className="font-medium">Prof. Marinilda Carvalho</div>
-              <div className="text-xs text-indigo-100">Coordenadora pedagógica</div>
+              <div className="font-medium">{teacherName}</div>
+              <div className="text-xs text-indigo-100">{teacherSubject}</div>
             </div>
           </div>
         </div>
