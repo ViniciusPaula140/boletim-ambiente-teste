@@ -3,10 +3,7 @@ services:
     name: boletim-escolar
     env: node
     nodeVersion: 18.17.0
-    buildCommand: |
-      npm install --legacy-peer-deps && \
-      npm install -g typescript && \
-      npm run build
+    buildCommand: npm install --legacy-peer-deps && npm run build
     startCommand: node dist/index.js
     envVars:
       - key: NODE_ENV
@@ -16,6 +13,10 @@ services:
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_KEY
+        sync: false
+      - key: BACKEND_URL
+        sync: false
+      - key: CORS_ORIGIN
         sync: false
     healthCheckPath: /health
     autoDeploy: true
