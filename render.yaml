@@ -3,7 +3,7 @@ services:
     name: boletim-escolar
     env: node
     nodeVersion: 18.17.0
-    buildCommand: npm install --legacy-peer-deps && npm install @vitejs/plugin-react --legacy-peer-deps && npx vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+    buildCommand: npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
