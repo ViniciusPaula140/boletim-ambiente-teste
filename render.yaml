@@ -2,7 +2,8 @@ services:
   - type: web
     name: boletim-escolar
     env: node
-    buildCommand: npm install && npm run build
+    nodeVersion: 18.17.0
+    buildCommand: npm install @vitejs/plugin-react && npm install && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
