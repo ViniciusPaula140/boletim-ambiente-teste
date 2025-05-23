@@ -4,11 +4,8 @@ services:
     env: node
     nodeVersion: 18.17.0
     buildCommand: |
-      npm cache clean --force
-      rm -rf node_modules
-      npm install -g npm@latest
-      npm install -g vite
-      npm ci
+      npm install
+      npm install @vitejs/plugin-react vite --save-dev
       npm run build
     startCommand: npm start
     envVars:
