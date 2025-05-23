@@ -4,12 +4,14 @@ services:
     env: node
     nodeVersion: 18.17.0
     buildCommand: npm install --legacy-peer-deps && npm run build
-    startCommand: node dist/index.js
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 10000
+      - key: DATABASE_URL
+        sync: false
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_KEY
@@ -23,11 +25,11 @@ services:
     # Configurações de segurança e performance
     headers:
       - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /*
         name: X-Frame-Options
         value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
       - path: /*
         name: X-XSS-Protection
         value: 1; mode=block
@@ -36,9 +38,9 @@ services:
         value: max-age=31536000; includeSubDomains
     # Configurações de cache
     cache:
-      - path: /static/*
-        ttl: 86400
       - path: /assets/*
+        ttl: 86400
+      - path: /images/*
         ttl: 86400
     # Configurações de rede
     network:
@@ -46,16 +48,10 @@ services:
         protocol: http
     # Configurações de recursos
     resources:
-      cpu: 0.1
-      memory: 512MB
+      cpu: 1
+      memory: 1GB
       disk: 1GB
     # Configurações de monitoramento
     monitoring:
-      enabled: true
-      alerts:
-        - type: error
-          threshold: 5
-          window: 5m
-        - type: latency
-          threshold: 1000
-          window: 5m 
+      errorThreshold: 5
+      latencyThreshold: 1000 
