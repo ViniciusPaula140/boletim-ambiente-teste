@@ -14,7 +14,7 @@ interface HeaderProps {
   teacherSubject?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ teacherName = "Prof. Marinilda Carvalho", teacherSubject = "Coordenadora pedagógica" }) => {
+const Header: React.FC<HeaderProps> = ({ teacherName = "Prof. professor", teacherSubject = "Coordenadora pedagógica" }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [suggestions, setSuggestions] = useState<Student[]>([]);
